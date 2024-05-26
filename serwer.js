@@ -31,6 +31,6 @@ app.get('/', (req, res) => {
         paymentId: paymentId,
         status: status
     })
-    // res.redirect(301, 'https://www.interia.pl');
+    res.redirect('https://www.interia.pl');
 })
 app.listen(port, () => console.log(`Server running on port ${port}`))
