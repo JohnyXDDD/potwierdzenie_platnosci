@@ -14,23 +14,30 @@ app.use(cors())
 //     res.header('Access-Control-Allow-Origin', '*');
 //     next()
 // })
-app.get('/', (req, res) => {
-    const paymentId = req.query.paymentId;
-    const randomNo = Math.floor(Math.random() * 2) + 1;
-    let status = ''
-    if (randomNo == 1) {
-        status = 'canceled'
-    }
-    else if (randomNo == 2) {
-        status = 'confirmed'
-    }
-    else {
-        status = 'waiting'
-    }
-    res.send({
-        paymentId: paymentId,
-        status: status
-    })
+const testowa = []
+app.get('/test', (req, res) => {
+    const test = req.query.test;
+    testowa.push(test)
+    // const paymentId = req.query.paymentId;
+    // const randomNo = Math.floor(Math.random() * 2) + 1;
+    // let status = ''
+    // if (randomNo == 1) {
+    //     status = 'canceled'
+    // }
+    // else if (randomNo == 2) {
+    //     status = 'confirmed'
+    // }
+    // else {
+    //     status = 'waiting'
+    // }
+    // res.send({
+    //     paymentId: paymentId,
+    //     status: status
+    // })
     res.redirect('https://www.interia.pl');
 })
 app.listen(port, () => console.log(`Server running on port ${port}`))
+
+setInterval(() => {
+    console.log(testowa)
+}, 1000)
